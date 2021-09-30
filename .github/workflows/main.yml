@@ -18,6 +18,6 @@ jobs:
       with:
         version: '1.28.0'
     - name: Run application
-          working-directory: src
-          run: |
-            docker-compose up -d
+      working-directory: src
+      run: |
+        docker-compose up -d
