@@ -28,9 +28,8 @@ jobs:
     - name: Create VPN user
       run: docker exec openconnect ocpasswd -c /config/ocpasswd markusmcnugen
 
-    - name: Fail script
-      run: exit 1
-      id: test_command
+    - name: Try to connect via openconnect to public IP
+      run: openconnect https://$(curl icanhazip.com)/
 
     - name: Save logs to file
       if: always()
