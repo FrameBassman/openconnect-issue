@@ -17,6 +17,11 @@ jobs:
     - uses: KengoTODA/actions-setup-docker-compose@main
       with:
         version: '1.28.0'
+    - name: Install openconnect client
+      run: |
+        apt update
+        apt upgrade
+        apt install -y openconnect
     - name: Run application
       working-directory: src
       run: |
