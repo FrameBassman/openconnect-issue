@@ -29,9 +29,10 @@ jobs:
       run: docker exec openconnect ocpasswd -c /config/ocpasswd markusmcnugen
 
     - name: Save logs to file
+      working-directory: src
       run: docker-compose logs --no-color |& tee logs.txt
     - uses: actions/upload-artifact@v2
       name: Archive logs
       with:
         name: logs
-        path: ./logs.txt
+        path: ./src/logs.txt
