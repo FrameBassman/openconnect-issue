@@ -38,6 +38,7 @@ jobs:
       run: docker-compose logs --no-color |& tee logs.txt
     - uses: actions/upload-artifact@v2
       name: Archive logs
+      if: always()
       with:
         name: logs
         path: ./src/logs.txt
