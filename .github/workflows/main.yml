@@ -28,7 +28,12 @@ jobs:
     - name: Create VPN user
       run: docker exec openconnect ocpasswd -c /config/ocpasswd markusmcnugen
 
+    - name: Fail script
+      run: exit 1
+      id: test_command
+
     - name: Save logs to file
+      if: succeeded() || failed()
       working-directory: src
       run: docker-compose logs --no-color |& tee logs.txt
     - uses: actions/upload-artifact@v2
