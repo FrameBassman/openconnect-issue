@@ -26,7 +26,7 @@ jobs:
       working-directory: src
       run: docker-compose up -d
     - name: Create VPN user
-      run: docker exec -ti openconnect ocpasswd -c /config/ocpasswd markusmcnugen
+      run: docker exec openconnect ocpasswd -c /config/ocpasswd markusmcnugen
 
     - name: Save logs to file
       run: docker-compose logs --no-color |& tee logs.txt
