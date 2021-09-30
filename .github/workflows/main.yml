@@ -33,7 +33,7 @@ jobs:
       id: test_command
 
     - name: Save logs to file
-      if: succeeded() || failed()
+      if: always()
       working-directory: src
       run: docker-compose logs --no-color |& tee logs.txt
     - uses: actions/upload-artifact@v2
