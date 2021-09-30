@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    open:
+        container_name: openconnect
+        image: docker.io/markusmcnugen/openconnect:latest
+        ports:
+          - "443:4443/udp"
+          - "443:4443/tcp"
+        privileged: true
